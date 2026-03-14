@@ -1,0 +1,235 @@
+.sd-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #e2e8f0;
+  box-sizing: border-box;
+}
+
+.sd-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  background: transparent;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.sd-btn:hover,
+.sd-btn:focus-visible {
+  background: #e2e8f0;
+}
+
+.sd-searchText {
+  font-weight: 600;
+  color: black;
+}
+
+/* hide search text on small screens */
+@media (max-width: 768px) {
+  .sd-searchText {
+    display: none;
+  }
+}
+
+.sd-title {
+  font-size: 24px;
+  font-weight: 700;
+  font-family: "Work Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  color: black;
+}
+
+.sd-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sd-bellBtn {
+  position: relative;
+}
+
+.sd-badge {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #f56565; /* red */
+}
+
+/* popover container */
+.sd-popover {
+  position: relative;
+}
+
+/* dropdown hidden by default */
+.sd-dropdown {
+  position: absolute;
+  top: 115%;
+  right: 0;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  min-width: 200px;
+  padding: 6px 0;
+  z-index: 50;
+
+  display: none;
+}
+
+/* show dropdown when hover OR keyboard focus inside */
+.sd-popover:hover .sd-dropdown,
+.sd-popover:focus-within .sd-dropdown {
+  display: block;
+}
+
+.sd-item {
+  padding: 10px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #111827;
+}
+
+.sd-item:hover {
+  background: #f3f4f6;
+}
+
+.sd-muted {
+  color: #6b7280;
+  cursor: default;
+}
+
+.sd-divider {
+  height: 1px;
+  background: #e5e7eb;
+  margin: 6px 0;
+}
+
+/* avatar button */
+.sd-avatarBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  background: transparent;
+  padding: 6px 8px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.sd-avatarBtn:hover,
+.sd-avatarBtn:focus-visible {
+  background: #e2e8f0;
+}
+
+.sd-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  object-fit: cover;
+  background: #cbd5e0;
+}
+
+/* Drawer UI (hidden until you toggle class later) */
+.sd-drawerWrap {
+  position: fixed;
+  inset: 0;
+  display: none; /* later you can set to flex/block */
+  z-index: 100;
+}
+
+.sd-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.sd-drawer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 420px;
+  max-width: 85%;
+  background: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.sd-drawerHeader {
+  font-size: 20px;
+  font-weight: 700;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.sd-row {
+  display: flex;
+  gap: 10px;
+  padding-top: 12px;
+}
+
+.sd-input {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  outline: none;
+}
+
+.sd-goBtn {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  background: white;
+  cursor: pointer;
+}
+
+.sd-goBtn:hover {
+  background: #f3f4f6;
+}
+.sd-drawerWrap {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+}
+
+.sd-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.sd-drawer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 360px;
+  background: #fff;
+  padding: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.sd-drawerTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.sd-closeBtn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 18px;
+}
