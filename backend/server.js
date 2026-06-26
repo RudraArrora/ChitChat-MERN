@@ -34,9 +34,9 @@ const server = app.listen(PORT, () => console.log(`Server running at ${PORT}`));
 
 // ---------------- SOCKET.IO (added from old code) ----------------
 const io = require("socket.io")(server, {
+  path: process.env.SOCKET_PATH || "/socket.io",
   pingTimeout: 600000,
   cors: {
-    // Allow development from localhost, LAN IPs, and other dev URLs.
     origin: "*",
   },
 });

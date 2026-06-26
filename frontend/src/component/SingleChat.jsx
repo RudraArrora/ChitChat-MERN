@@ -24,12 +24,15 @@ import UpdateGroupChatModal from "./mics/UpdateGroupChatModal";
 import { toaster } from "@/components/ui/toaster";
 import "./styles.css";
 
+const isLocal =
+  window.location.hostname === "localhost" ||
+  window.location.hostname === "127.0.0.1";
+
 const ENDPOINT =
   import.meta.env.VITE_BACKEND_URL ||
-  (window.location.hostname === "localhost" ||
-  window.location.hostname === "127.0.0.1"
-    ? "http://localhost:5000"
-    : `http://${window.location.hostname}:5000`);
+  (isLocal ? "http://localhost:5000" : window.location.origin);
+
+const SOCKET_PATH = isLocal ? "/socket.io" : "/api/socket.io";
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   const [messages, setMessages] = useState([]);
@@ -85,7 +88,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   useEffect(() => {
     if (!user?._id) return;
 
-    const s = io(ENDPOINT);
+    const s = io(ENDPOINT, { path: SOCKET_PATH });
     socketRef.current = s;
 
     s.emit("setup", user);
