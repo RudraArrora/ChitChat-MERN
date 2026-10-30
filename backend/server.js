@@ -27,13 +27,12 @@ app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => res.send("API is running!"));
 
-// Vercel mounts this service at /api, so incoming paths are /user not /api/user.
-// Locally we keep /api/user to match the Vite proxy.
+// Public traffic hits this service as /api/... (Vite proxy locally, Vercel rewrite in prod).
 const apiRouter = express.Router();
 apiRouter.use("/user", userRoutes);
 apiRouter.use("/chat", chatRoutes);
 apiRouter.use("/message", messageRoutes);
-app.use(process.env.VERCEL ? "/" : "/api", apiRouter);
+app.use("/api", apiRouter);
 
 app.use(notFound);
 app.use(errorHandler);
